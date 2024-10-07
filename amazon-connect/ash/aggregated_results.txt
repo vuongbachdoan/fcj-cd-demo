@@ -1,0 +1,968 @@
+#############################################
+Start of  /Users/jospas/Development/ConnectVoiceWorkshop/work/git_report_result.txt
+#############################################
+>>>>>> begin tree result >>>>>>
+Git repository detected. Ensure your .gitignore configuration excludes all the files that you intend to ignore.
+[ 10M]  /run/scan/src
+|-- [ 155]  .gitignore
+|-- [ 340]  CHANGELOG.md
+|-- [3.1K]  CONTRIBUTING.md
+|-- [ 32K]  ContactFlows
+|   |-- [ 14K]  0001\ -\ Live\ agent.json
+|   `-- [ 14K]  AmazonConciergeAIConnectFlow.json
+|-- [ 15K]  LICENSE
+|-- [ 926]  LICENSE-SAMPLECODE
+|-- [ 322]  LICENSE-SUMMARY
+|-- [2.5K]  README.md
+|-- [494K]  architecture
+|   |-- [ 15K]  AgentArchitecture.drawio
+|   |-- [245K]  AgentArchitecture.png
+|   |-- [ 11K]  Architecture.drawio
+|   `-- [219K]  Architecture.png
+|-- [ 49K]  ash
+|   `-- [ 45K]  aggregated_results.txt
+|-- [ 26K]  checkov.log
+|-- [9.2M]  doc
+|   `-- [9.2M]  Amazon\ Concierge\ AI\ Workshop.docx
+|-- [4.7K]  env
+|   `-- [ 690]  dev.sh
+|-- [351K]  package-lock.json
+|-- [ 786]  package.json
+|-- [1.9K]  repolinter.out
+|-- [5.5K]  scripts
+|   |-- [ 511]  check_aws_account.sh
+|   |-- [ 183]  create_deployment_bucket.sh
+|   |-- [ 632]  deploy_endpoint.py
+|   `-- [ 217]  serverless_deploy.sh
+|-- [6.6K]  serverless.yaml
+|-- [ 52K]  src
+|   |-- [6.5K]  lambda
+|   |   |-- [ 655]  ProcessStream.js
+|   |   |-- [ 595]  StartStreaming.js
+|   |   `-- [1.2K]  VirtualAgent.js
+|   `-- [ 42K]  utils
+|       |-- [2.6K]  BedrockComandline.js
+|       |-- [ 13K]  BedrockUtils.js
+|       |-- [5.0K]  DynamoUtils.js
+|       |-- [1.2K]  KinesisVideoUtils.js
+|       |-- [ 437]  SQSUtils.js
+|       |-- [ 908]  SageMakerUtils.js
+|       `-- [ 15K]  TranscriptionUtils.js
+`-- [ 20K]  test
+    |-- [ 474]  TestTranscribe.js
+    |-- [ 985]  agent.py
+    `-- [ 15K]  chatbot.py
+
+  20M used in 11 directories, 38 files
+<<<<<< end tree -x -h -a --du -I .git result <<<<<<
+OK
+git config --local --get-regexp "^secrets\..*$" output:
+secrets.providers git secrets --aws-provider
+secrets.patterns (A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}
+secrets.patterns ("|')?(AWS|aws|Aws)?_?(SECRET|secret|Secret)?_?(ACCESS|access|Access)?_?(KEY|key|Key)("|')?\s*(:|=>|=)\s*("|')?[A-Za-z0-9/\+=]{40}("|')?
+secrets.patterns ("|')?(AWS|aws|Aws)?_?(ACCOUNT|account|Account)_?(ID|id|Id)?("|')?\s*(:|=>|=)\s*("|')?[0-9]{4}\-?[0-9]{4}\-?[0-9]{4}("|')?
+secrets.allowed AKIAIOSFODNN7EXAMPLE
+secrets.allowed wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+>>>>>> begin git secrets --scan result >>>>>>
+<<<<<< end git secrets --scan result <<<<<<
+#############################################
+End of  /Users/jospas/Development/ConnectVoiceWorkshop/work/git_report_result.txt
+#############################################
+
+
+#############################################
+Start of  /Users/jospas/Development/ConnectVoiceWorkshop/work/grype_report_result.txt
+#############################################
+
+>>>>>> Begin Grype output for /run/scan/src >>>>>>
+
+NAME  INSTALLED  FIXED-IN  TYPE  VULNERABILITY        SEVERITY 
+tar   6.2.0      6.2.1     npm   GHSA-f5x3-32g6-xq36  Medium
+discovered vulnerabilities at or above the severity threshold
+
+<<<<<< End Grype output for /run/scan/src <<<<<<
+
+
+>>>>>> Begin Grype output for /out/work >>>>>>
+
+No vulnerabilities found
+
+<<<<<< End Grype output for /out/work <<<<<<
+
+
+>>>>>> Begin Syft output for /run/scan/src >>>>>>
+
+NAME                                           VERSION       TYPE   
+2-thenable                                     1.0.0         npm     
+@anthropic-ai/bedrock-sdk                      0.9.1         npm     
+@anthropic-ai/sdk                              0.19.0        npm     
+@aws-crypto/crc32                              3.0.0         npm     
+@aws-crypto/ie11-detection                     3.0.0         npm     
+@aws-crypto/sha256-browser                     3.0.0         npm     
+@aws-crypto/sha256-js                          3.0.0         npm     
+@aws-crypto/sha256-js                          4.0.0         npm     
+@aws-crypto/supports-web-crypto                3.0.0         npm     
+@aws-crypto/util                               3.0.0         npm     
+@aws-crypto/util                               4.0.0         npm     
+@aws-sdk/client-bedrock-runtime                3.535.0       npm     
+@aws-sdk/client-cloudformation                 3.499.0       npm     
+@aws-sdk/client-cognito-identity               3.535.0       npm     
+@aws-sdk/client-dynamodb                       3.499.0       npm     
+@aws-sdk/client-kinesis-video                  3.490.0       npm     
+@aws-sdk/client-kinesis-video-media            3.490.0       npm     
+@aws-sdk/client-sagemaker                      3.492.0       npm     
+@aws-sdk/client-sagemaker-runtime              3.490.0       npm     
+@aws-sdk/client-sso                            3.490.0       npm     
+@aws-sdk/client-sso                            3.496.0       npm     
+@aws-sdk/client-sso                            3.535.0       npm     
+@aws-sdk/client-sso-oidc                       3.535.0       npm     
+@aws-sdk/client-sts                            3.490.0       npm     
+@aws-sdk/client-sts                            3.499.0       npm     
+@aws-sdk/client-sts                            3.535.0       npm     
+@aws-sdk/core                                  3.490.0       npm     
+@aws-sdk/core                                  3.496.0       npm     
+@aws-sdk/core                                  3.535.0       npm     
+@aws-sdk/credential-provider-cognito-identity  3.535.0       npm     
+@aws-sdk/credential-provider-env               3.489.0       npm     
+@aws-sdk/credential-provider-env               3.496.0       npm     
+@aws-sdk/credential-provider-env               3.535.0       npm     
+@aws-sdk/credential-provider-http              3.535.0       npm     
+@aws-sdk/credential-provider-ini               3.490.0       npm     
+@aws-sdk/credential-provider-ini               3.496.0       npm     
+@aws-sdk/credential-provider-ini               3.535.0       npm     
+@aws-sdk/credential-provider-node              3.490.0       npm     
+@aws-sdk/credential-provider-node              3.499.0       npm     
+@aws-sdk/credential-provider-node              3.535.0       npm     
+@aws-sdk/credential-provider-process           3.489.0       npm     
+@aws-sdk/credential-provider-process           3.496.0       npm     
+@aws-sdk/credential-provider-process           3.535.0       npm     
+@aws-sdk/credential-provider-sso               3.490.0       npm     
+@aws-sdk/credential-provider-sso               3.496.0       npm     
+@aws-sdk/credential-provider-sso               3.535.0       npm     
+@aws-sdk/credential-provider-web-identity      3.489.0       npm     
+@aws-sdk/credential-provider-web-identity      3.496.0       npm     
+@aws-sdk/credential-provider-web-identity      3.535.0       npm     
+@aws-sdk/credential-providers                  3.535.0       npm     
+@aws-sdk/endpoint-cache                        3.495.0       npm     
+@aws-sdk/middleware-endpoint-discovery         3.496.0       npm     
+@aws-sdk/middleware-host-header                3.489.0       npm     
+@aws-sdk/middleware-host-header                3.496.0       npm     
+@aws-sdk/middleware-host-header                3.535.0       npm     
+@aws-sdk/middleware-logger                     3.489.0       npm     
+@aws-sdk/middleware-logger                     3.496.0       npm     
+@aws-sdk/middleware-logger                     3.535.0       npm     
+@aws-sdk/middleware-recursion-detection        3.489.0       npm     
+@aws-sdk/middleware-recursion-detection        3.496.0       npm     
+@aws-sdk/middleware-recursion-detection        3.535.0       npm     
+@aws-sdk/middleware-signing                    3.489.0       npm     
+@aws-sdk/middleware-signing                    3.496.0       npm     
+@aws-sdk/middleware-user-agent                 3.489.0       npm     
+@aws-sdk/middleware-user-agent                 3.496.0       npm     
+@aws-sdk/middleware-user-agent                 3.535.0       npm     
+@aws-sdk/protocol-http                         3.374.0       npm     
+@aws-sdk/region-config-resolver                3.489.0       npm     
+@aws-sdk/region-config-resolver                3.496.0       npm     
+@aws-sdk/region-config-resolver                3.535.0       npm     
+@aws-sdk/signature-v4                          3.374.0       npm     
+@aws-sdk/token-providers                       3.489.0       npm     
+@aws-sdk/token-providers                       3.496.0       npm     
+@aws-sdk/token-providers                       3.535.0       npm     
+@aws-sdk/types                                 3.489.0       npm     
+@aws-sdk/types                                 3.496.0       npm     
+@aws-sdk/types                                 3.535.0       npm     
+@aws-sdk/util-endpoints                        3.489.0       npm     
+@aws-sdk/util-endpoints                        3.496.0       npm     
+@aws-sdk/util-endpoints                        3.535.0       npm     
+@aws-sdk/util-locate-window                    3.465.0       npm     
+@aws-sdk/util-user-agent-browser               3.489.0       npm     
+@aws-sdk/util-user-agent-browser               3.496.0       npm     
+@aws-sdk/util-user-agent-browser               3.535.0       npm     
+@aws-sdk/util-user-agent-node                  3.489.0       npm     
+@aws-sdk/util-user-agent-node                  3.496.0       npm     
+@aws-sdk/util-user-agent-node                  3.535.0       npm     
+@aws-sdk/util-utf8-browser                     3.259.0       npm     
+@kwsites/file-exists                           1.1.1         npm     
+@kwsites/promise-deferred                      1.1.1         npm     
+@nodelib/fs.scandir                            2.1.5         npm     
+@nodelib/fs.stat                               2.0.5         npm     
+@nodelib/fs.walk                               1.2.8         npm     
+@serverless/dashboard-plugin                   7.2.0         npm     
+@serverless/event-mocks                        1.1.1         npm     
+@serverless/platform-client                    4.5.1         npm     
+@serverless/utils                              6.15.0        npm     
+@sindresorhus/is                               4.6.0         npm     
+@smithy/abort-controller                       2.2.0         npm     
+@smithy/config-resolver                        2.2.0         npm     
+@smithy/core                                   1.4.0         npm     
+@smithy/credential-provider-imds               2.3.0         npm     
+@smithy/eventstream-codec                      1.1.0         npm     
+@smithy/eventstream-codec                      2.2.0         npm     
+@smithy/eventstream-serde-browser              2.2.0         npm     
+@smithy/eventstream-serde-config-resolver      2.2.0         npm     
+@smithy/eventstream-serde-node                 2.2.0         npm     
+@smithy/eventstream-serde-universal            2.2.0         npm     
+@smithy/fetch-http-handler                     2.5.0         npm     
+@smithy/hash-node                              2.2.0         npm     
+@smithy/invalid-dependency                     2.2.0         npm     
+@smithy/is-array-buffer                        1.1.0         npm     
+@smithy/is-array-buffer                        2.2.0         npm     
+@smithy/middleware-content-length              2.2.0         npm     
+@smithy/middleware-endpoint                    2.5.0         npm     
+@smithy/middleware-retry                       2.2.0         npm     
+@smithy/middleware-serde                       2.3.0         npm     
+@smithy/middleware-stack                       2.2.0         npm     
+@smithy/node-config-provider                   2.3.0         npm     
+@smithy/node-http-handler                      2.5.0         npm     
+@smithy/property-provider                      2.2.0         npm     
+@smithy/protocol-http                          1.2.0         npm     
+@smithy/protocol-http                          3.3.0         npm     
+@smithy/querystring-builder                    2.2.0         npm     
+@smithy/querystring-parser                     2.2.0         npm     
+@smithy/service-error-classification           2.1.5         npm     
+@smithy/shared-ini-file-loader                 2.4.0         npm     
+@smithy/signature-v4                           1.1.0         npm     
+@smithy/signature-v4                           2.2.0         npm     
+@smithy/smithy-client                          2.5.0         npm     
+@smithy/types                                  1.2.0         npm     
+@smithy/types                                  2.12.0        npm     
+@smithy/url-parser                             2.2.0         npm     
+@smithy/util-base64                            2.3.0         npm     
+@smithy/util-body-length-browser               2.2.0         npm     
+@smithy/util-body-length-node                  2.3.0         npm     
+@smithy/util-buffer-from                       1.1.0         npm     
+@smithy/util-buffer-from                       2.2.0         npm     
+@smithy/util-config-provider                   2.3.0         npm     
+@smithy/util-defaults-mode-browser             2.2.0         npm     
+@smithy/util-defaults-mode-node                2.3.0         npm     
+@smithy/util-endpoints                         1.2.0         npm     
+@smithy/util-hex-encoding                      1.1.0         npm     
+@smithy/util-hex-encoding                      2.2.0         npm     
+@smithy/util-middleware                        1.1.0         npm     
+@smithy/util-middleware                        2.2.0         npm     
+@smithy/util-retry                             2.2.0         npm     
+@smithy/util-stream                            2.2.0         npm     
+@smithy/util-uri-escape                        1.1.0         npm     
+@smithy/util-uri-escape                        2.2.0         npm     
+@smithy/util-utf8                              1.1.0         npm     
+@smithy/util-utf8                              2.3.0         npm     
+@smithy/util-waiter                            2.1.1         npm     
+@szmarczak/http-timer                          4.0.6         npm     
+@tokenizer/token                               0.3.0         npm     
+@types/cacheable-request                       6.0.3         npm     
+@types/http-cache-semantics                    4.0.4         npm     
+@types/keyv                                    3.1.4         npm     
+@types/lodash                                  4.14.202      npm     
+@types/node                                    18.19.26      npm     
+@types/node                                    20.11.6       npm     
+@types/node-fetch                              2.6.11        npm     
+@types/responselike                            1.0.3         npm     
+abort-controller                               3.0.0         npm     
+adm-zip                                        0.5.10        npm     
+agent-base                                     6.0.2         npm     
+agentkeepalive                                 4.5.0         npm     
+ajv                                            8.12.0        npm     
+ajv-formats                                    2.1.1         npm     
+ansi-escapes                                   4.3.2         npm     
+ansi-regex                                     5.0.1         npm     
+ansi-styles                                    3.2.1         npm     
+ansi-styles                                    4.3.0         npm     
+anymatch                                       3.1.3         npm     
+archive-type                                   4.0.0         npm     
+archiver                                       5.3.2         npm     
+archiver-utils                                 2.1.0         npm     
+archiver-utils                                 3.0.4         npm     
+argparse                                       1.0.10        npm     
+argparse                                       2.0.1         npm     
+array-union                                    2.1.0         npm     
+asap                                           2.0.6         npm     
+async                                          3.2.5         npm     
+asynckit                                       0.4.0         npm     
+at-least-node                                  1.0.0         npm     
+available-typed-arrays                         1.0.5         npm     
+aws-sdk                                        2.1543.0      npm     
+axios                                          1.6.6         npm     
+balanced-match                                 1.0.2         npm     
+base-64                                        0.1.0         npm     
+base64-js                                      1.5.1         npm     
+binary-extensions                              2.2.0         npm     
+bl                                             1.2.3         npm     
+bl                                             4.1.0         npm     
+bluebird                                       3.7.2         npm     
+bowser                                         2.11.0        npm     
+brace-expansion                                1.1.11        npm     
+brace-expansion                                2.0.1         npm     
+braces                                         3.0.2         npm     
+buffer                                         4.9.2         npm     
+buffer                                         5.7.1         npm     
+buffer-alloc                                   1.2.0         npm     
+buffer-alloc-unsafe                            1.1.0         npm     
+buffer-crc32                                   0.2.13        npm     
+buffer-fill                                    1.0.0         npm     
+builtin-modules                                3.3.0         npm     
+builtins                                       1.0.3         npm     
+cacheable-lookup                               5.0.4         npm     
+cacheable-request                              7.0.4         npm     
+cachedir                                       2.4.0         npm     
+call-bind                                      1.0.5         npm     
+chalk                                          2.4.2         npm     
+chalk                                          4.1.2         npm     
+chardet                                        0.7.0         npm     
+charenc                                        0.0.2         npm     
+child-process-ext                              2.1.1         npm     
+child-process-ext                              3.0.2         npm     
+chokidar                                       3.5.3         npm     
+chownr                                         2.0.0         npm     
+ci-info                                        3.9.0         npm     
+cli-color                                      2.0.3         npm     
+cli-cursor                                     3.1.0         npm     
+cli-progress-footer                            2.3.2         npm     
+cli-spinners                                   2.9.2         npm     
+cli-sprintf-format                             1.1.1         npm     
+cli-width                                      3.0.0         npm     
+clone                                          1.0.4         npm     
+clone-response                                 1.0.3         npm     
+color-convert                                  1.9.3         npm     
+color-convert                                  2.0.1         npm     
+color-name                                     1.1.3         npm     
+color-name                                     1.1.4         npm     
+combined-stream                                1.0.8         npm     
+commander                                      2.20.3        npm     
+commander                                      4.1.1         npm     
+component-emitter                              1.3.1         npm     
+compress-commons                               4.1.2         npm     
+concat-map                                     0.0.1         npm     
+connectvoice                                   1.0.0         npm     
+content-disposition                            0.5.4         npm     
+cookiejar                                      2.1.4         npm     
+core-util-is                                   1.0.3         npm     
+crc-32                                         1.2.2         npm     
+crc32-stream                                   4.0.3         npm     
+cross-spawn                                    6.0.5         npm     
+cross-spawn                                    7.0.3         npm     
+crypt                                          0.0.2         npm     
+d                                              1.0.1         npm     
+dayjs                                          1.11.10       npm     
+debug                                          4.3.4         npm     
+decompress                                     4.2.1         npm     
+decompress-response                            6.0.0         npm     
+decompress-tar                                 4.1.1         npm     
+decompress-tarbz2                              4.1.1         npm     
+decompress-targz                               4.1.1         npm     
+decompress-unzip                               4.0.1         npm     
+defaults                                       1.0.4         npm     
+defer-to-connect                               2.0.1         npm     
+deferred                                       0.7.11        npm     
+define-data-property                           1.1.1         npm     
+define-lazy-prop                               2.0.0         npm     
+delayed-stream                                 1.0.0         npm     
+dezalgo                                        1.0.4         npm     
+digest-fetch                                   1.3.0         npm     
+dir-glob                                       3.0.1         npm     
+dotenv                                         16.4.1        npm     
+dotenv-expand                                  10.0.0        npm     
+duration                                       0.2.2         npm     
+ebml-stream                                    1.0.3         npm     
+emoji-regex                                    8.0.0         npm     
+end-of-stream                                  1.4.4         npm     
+es5-ext                                        0.10.64       npm     
+es6-iterator                                   2.0.3         npm     
+es6-set                                        0.1.6         npm     
+es6-symbol                                     3.1.3         npm     
+es6-weak-map                                   2.0.3         npm     
+escape-string-regexp                           1.0.5         npm     
+esniff                                         1.1.3         npm     
+esniff                                         2.0.1         npm     
+esprima                                        4.0.1         npm     
+essentials                                     1.2.0         npm     
+event-emitter                                  0.3.5         npm     
+event-target-shim                              5.0.1         npm     
+events                                         1.1.1         npm     
+ext                                            1.7.0         npm     
+ext-list                                       2.2.2         npm     
+ext-name                                       5.0.0         npm     
+external-editor                                3.1.0         npm     
+fast-deep-equal                                3.1.3         npm     
+fast-glob                                      3.3.2         npm     
+fast-safe-stringify                            2.1.1         npm     
+fast-xml-parser                                4.2.5         npm     
+fastest-levenshtein                            1.0.16        npm     
+fastq                                          1.16.0        npm     
+fd-slicer                                      1.1.0         npm     
+figures                                        3.2.0         npm     
+file-type                                      16.5.4        npm     
+file-type                                      3.9.0         npm     
+file-type                                      4.4.0         npm     
+file-type                                      5.2.0         npm     
+file-type                                      6.2.0         npm     
+filename-reserved-regex                        2.0.0         npm     
+filenamify                                     4.3.0         npm     
+filesize                                       10.1.0        npm     
+fill-range                                     7.0.1         npm     
+find-requires                                  1.0.0         npm     
+flat                                           5.0.2         npm     
+follow-redirects                               1.15.6        npm     
+for-each                                       0.3.3         npm     
+form-data                                      4.0.0         npm     
+form-data-encoder                              1.7.2         npm     
+formdata-node                                  4.4.1         npm     
+formidable                                     2.1.2         npm     
+fs-constants                                   1.0.0         npm     
+fs-extra                                       10.1.0        npm     
+fs-extra                                       9.1.0         npm     
+fs-minipass                                    2.1.0         npm     
+fs.realpath                                    1.0.0         npm     
+fs2                                            0.3.9         npm     
+fsevents                                       2.3.3         npm     
+function-bind                                  1.1.2         npm     
+get-intrinsic                                  1.2.2         npm     
+get-stdin                                      8.0.0         npm     
+get-stream                                     2.3.1         npm     
+get-stream                                     5.2.0         npm     
+get-stream                                     6.0.1         npm     
+glob                                           7.2.3         npm     
+glob-parent                                    5.1.2         npm     
+globby                                         11.1.0        npm     
+gopd                                           1.0.1         npm     
+got                                            11.8.6        npm     
+graceful-fs                                    4.2.11        npm     
+graphlib                                       2.1.8         npm     
+has-flag                                       3.0.0         npm     
+has-flag                                       4.0.0         npm     
+has-property-descriptors                       1.0.1         npm     
+has-proto                                      1.0.1         npm     
+has-symbols                                    1.0.3         npm     
+has-tostringtag                                1.0.0         npm     
+hasown                                         2.0.0         npm     
+hexoid                                         1.0.0         npm     
+http-cache-semantics                           4.1.1         npm     
+http2-wrapper                                  1.0.3         npm     
+https-proxy-agent                              5.0.1         npm     
+humanize-ms                                    1.2.1         npm     
+iconv-lite                                     0.4.24        npm     
+ieee754                                        1.1.13        npm     
+ieee754                                        1.2.1         npm     
+ignore                                         5.3.0         npm     
+immediate                                      3.0.6         npm     
+imurmurhash                                    0.1.4         npm     
+inflight                                       1.0.6         npm     
+inherits                                       2.0.4         npm     
+inquirer                                       8.2.6         npm     
+is-arguments                                   1.1.1         npm     
+is-binary-path                                 2.1.0         npm     
+is-buffer                                      1.1.6         npm     
+is-callable                                    1.2.7         npm     
+is-docker                                      2.2.1         npm     
+is-extglob                                     2.1.1         npm     
+is-fullwidth-code-point                        3.0.0         npm     
+is-generator-function                          1.0.10        npm     
+is-glob                                        4.0.3         npm     
+is-interactive                                 1.0.0         npm     
+is-natural-number                              4.0.1         npm     
+is-number                                      7.0.0         npm     
+is-plain-obj                                   1.1.0         npm     
+is-promise                                     2.2.2         npm     
+is-stream                                      1.1.0         npm     
+is-typed-array                                 1.1.12        npm     
+is-unicode-supported                           0.1.0         npm     
+is-wsl                                         2.2.0         npm     
+isarray                                        1.0.0         npm     
+isexe                                          2.0.0         npm     
+isomorphic-ws                                  4.0.1         npm     
+jmespath                                       0.16.0        npm     
+js-yaml                                        3.14.1        npm     
+js-yaml                                        4.1.0         npm     
+json-buffer                                    3.0.1         npm     
+json-colorizer                                 2.2.2         npm     
+json-cycle                                     1.5.0         npm     
+json-refs                                      3.0.15        npm     
+json-schema-traverse                           1.0.0         npm     
+jsonfile                                       6.1.0         npm     
+jszip                                          3.10.1        npm     
+jwt-decode                                     2.2.0         npm     
+jwt-decode                                     3.1.2         npm     
+keyv                                           4.5.4         npm     
+lazystream                                     1.0.1         npm     
+lie                                            3.3.0         npm     
+lodash                                         4.17.21       npm     
+lodash.defaults                                4.2.0         npm     
+lodash.difference                              4.5.0         npm     
+lodash.flatten                                 4.4.0         npm     
+lodash.get                                     4.4.2         npm     
+lodash.isplainobject                           4.0.6         npm     
+lodash.union                                   4.6.0         npm     
+log                                            6.3.1         npm     
+log-node                                       8.0.3         npm     
+log-symbols                                    4.1.0         npm     
+lowercase-keys                                 2.0.0         npm     
+lru-cache                                      6.0.0         npm     
+lru-queue                                      0.1.0         npm     
+make-dir                                       1.3.0         npm     
+make-dir                                       4.0.0         npm     
+md5                                            2.3.0         npm     
+memoizee                                       0.4.15        npm     
+merge2                                         1.4.1         npm     
+methods                                        1.1.2         npm     
+micromatch                                     4.0.5         npm     
+mime                                           2.6.0         npm     
+mime-db                                        1.52.0        npm     
+mime-types                                     2.1.35        npm     
+mimic-fn                                       2.1.0         npm     
+mimic-response                                 1.0.1         npm     
+mimic-response                                 3.1.0         npm     
+minimatch                                      3.1.2         npm     
+minimatch                                      5.1.6         npm     
+minipass                                       3.3.6         npm     
+minipass                                       5.0.0         npm     
+minizlib                                       2.1.2         npm     
+mkdirp                                         1.0.4         npm     
+mnemonist                                      0.38.3        npm     
+ms                                             2.1.2         npm     
+ms                                             2.1.3         npm     
+mute-stream                                    0.0.8         npm     
+native-promise-only                            0.8.1         npm     
+ncjsm                                          4.3.2         npm     
+next-tick                                      1.1.0         npm     
+nice-try                                       1.0.5         npm     
+node-dir                                       0.1.17        npm     
+node-domexception                              1.0.0         npm     
+node-fetch                                     2.7.0         npm     
+normalize-path                                 3.0.0         npm     
+normalize-url                                  6.1.0         npm     
+npm-registry-utilities                         1.0.0         npm     
+object-assign                                  4.1.1         npm     
+object-hash                                    3.0.0         npm     
+object-inspect                                 1.13.1        npm     
+obliterator                                    1.6.1         npm     
+once                                           1.4.0         npm     
+onetime                                        5.1.2         npm     
+open                                           7.4.2         npm     
+open                                           8.4.2         npm     
+ora                                            5.4.1         npm     
+os-tmpdir                                      1.0.2         npm     
+p-cancelable                                   2.1.1         npm     
+p-event                                        4.2.0         npm     
+p-finally                                      1.0.0         npm     
+p-timeout                                      3.2.0         npm     
+pako                                           1.0.11        npm     
+path-is-absolute                               1.0.1         npm     
+path-key                                       2.0.1         npm     
+path-key                                       3.1.1         npm     
+path-loader                                    1.0.12        npm     
+path-type                                      4.0.0         npm     
+path2                                          0.1.0         npm     
+peek-readable                                  4.1.0         npm     
+pend                                           1.2.0         npm     
+picomatch                                      2.3.1         npm     
+pify                                           2.3.0         npm     
+pify                                           3.0.0         npm     
+pinkie                                         2.0.4         npm     
+pinkie-promise                                 2.0.1         npm     
+process-nextick-args                           2.0.1         npm     
+process-utils                                  4.0.0         npm     
+promise-queue                                  2.2.5         npm     
+proxy-from-env                                 1.1.0         npm     
+pump                                           3.0.0         npm     
+punycode                                       1.3.2         npm     
+punycode                                       2.3.1         npm     
+qs                                             6.11.2        npm     
+querystring                                    0.2.0         npm     
+querystring                                    0.2.1         npm     
+queue-microtask                                1.2.3         npm     
+quick-lru                                      5.1.1         npm     
+readable-stream                                2.3.8         npm     
+readable-stream                                3.6.2         npm     
+readable-web-to-node-stream                    3.0.2         npm     
+readdir-glob                                   1.1.3         npm     
+readdirp                                       3.6.0         npm     
+require-from-string                            2.0.2         npm     
+resolve-alpn                                   1.2.1         npm     
+responselike                                   2.0.1         npm     
+restore-cursor                                 3.1.0         npm     
+reusify                                        1.0.4         npm     
+run-async                                      2.4.1         npm     
+run-parallel                                   1.2.0         npm     
+run-parallel-limit                             1.1.0         npm     
+rxjs                                           7.8.1         npm     
+safe-buffer                                    5.1.2         npm     
+safe-buffer                                    5.2.1         npm     
+safer-buffer                                   2.1.2         npm     
+sax                                            1.2.1         npm     
+seek-bzip                                      1.0.6         npm     
+semver                                         5.7.2         npm     
+semver                                         7.5.4         npm     
+serverless                                     3.38.0        npm     
+set-function-length                            1.2.0         npm     
+setimmediate                                   1.0.5         npm     
+shebang-command                                1.2.0         npm     
+shebang-command                                2.0.0         npm     
+shebang-regex                                  1.0.0         npm     
+shebang-regex                                  3.0.0         npm     
+side-channel                                   1.0.4         npm     
+signal-exit                                    3.0.7         npm     
+simple-git                                     3.22.0        npm     
+slash                                          3.0.0         npm     
+sort-keys                                      1.1.2         npm     
+sort-keys-length                               1.0.1         npm     
+split2                                         3.2.2         npm     
+sprintf-js                                     1.0.3         npm     
+sprintf-kit                                    2.0.1         npm     
+stream-buffers                                 3.0.2         npm     
+stream-promise                                 3.2.0         npm     
+string-width                                   4.2.3         npm     
+string_decoder                                 1.1.1         npm     
+string_decoder                                 1.3.0         npm     
+strip-ansi                                     6.0.1         npm     
+strip-dirs                                     2.1.0         npm     
+strip-outer                                    1.0.1         npm     
+strnum                                         1.0.5         npm     
+strtok3                                        6.3.0         npm     
+superagent                                     7.1.6         npm     
+supports-color                                 5.5.0         npm     
+supports-color                                 6.1.0         npm     
+supports-color                                 7.2.0         npm     
+supports-color                                 8.1.1         npm     
+tar                                            6.2.0         npm     
+tar-stream                                     1.6.2         npm     
+tar-stream                                     2.2.0         npm     
+throat                                         5.0.0         npm     
+through                                        2.3.8         npm     
+timers-ext                                     0.1.7         npm     
+tmp                                            0.0.33        npm     
+to-buffer                                      1.1.1         npm     
+to-regex-range                                 5.0.1         npm     
+token-types                                    4.2.1         npm     
+tr46                                           0.0.3         npm     
+traverse                                       0.6.8         npm     
+trim-repeated                                  1.0.0         npm     
+tslib                                          1.14.1        npm     
+tslib                                          2.6.2         npm     
+type                                           1.2.0         npm     
+type                                           2.7.2         npm     
+type-fest                                      0.21.3        npm     
+unbzip2-stream                                 1.4.3         npm     
+undici-types                                   5.26.5        npm     
+uni-global                                     1.0.0         npm     
+universalify                                   2.0.1         npm     
+untildify                                      4.0.0         npm     
+uri-js                                         4.4.1         npm     
+url                                            0.10.3        npm     
+util                                           0.12.5        npm     
+util-deprecate                                 1.0.2         npm     
+uuid                                           8.0.0         npm     
+uuid                                           8.3.2         npm     
+uuid                                           9.0.1         npm     
+validate-npm-package-name                      3.0.0         npm     
+wcwidth                                        1.0.1         npm     
+web-streams-polyfill                           3.3.3         npm     
+web-streams-polyfill                           4.0.0-beta.3  npm     
+webidl-conversions                             3.0.1         npm     
+whatwg-url                                     5.0.0         npm     
+which                                          1.3.1         npm     
+which                                          2.0.2         npm     
+which-typed-array                              1.1.13        npm     
+wrap-ansi                                      6.2.0         npm     
+wrappy                                         1.0.2         npm     
+write-file-atomic                              4.0.2         npm     
+ws                                             7.5.9         npm     
+xml2js                                         0.6.2         npm     
+xmlbuilder                                     11.0.1        npm     
+xtend                                          4.0.2         npm     
+yallist                                        4.0.0         npm     
+yaml-ast-parser                                0.0.43        npm     
+yamljs                                         0.3.0         npm     
+yauzl                                          2.10.0        npm     
+zip-stream                                     4.1.1         npm
+
+<<<<<< End Syft output for /run/scan/src <<<<<<
+
+
+>>>>>> Begin Syft output for /out/work >>>>>>
+
+No packages discovered
+
+<<<<<< End Syft output for /out/work <<<<<<
+
+
+>>>>>> Begin Semgrep output for /run/scan/src >>>>>>
+
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 38 files tracked by git with 1034 Code rules:
+                                                                                                                        
+  Language      Rules   Files          Origin      Rules                                                                
+ ─────────────────────────────        ───────────────────                                                               
+  <multilang>      36      68          Community    1034                                                                
+  js              155      10                                                                                           
+  json              4       4                                                                                           
+  bash              4       4                                                                                           
+  python          240       1                                                                                           
+  yaml             28       1                                                                                           
+                                                                                                                        
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+Some files were skipped or only partially analyzed.
+  Scan was limited to files tracked by git.
+  Scan skipped: 1 files larger than 1.0 MB, 3 files matching .semgrepignore patterns
+  For a full list of skipped files, run semgrep with the --verbose flag.
+
+Ran 463 rules on 34 files: 7 findings.
+                   
+                   
+┌─────────────────┐
+│ 7 Code Findings │
+└─────────────────┘
+                                            
+    /run/scan/src/ash/aggregated_results.txt
+   ❯❯❱ generic.secrets.security.detected-aws-account-id.detected-aws-account-id
+          AWS Account ID detected. While not considered sensitive information, it is important to use them and
+          share them carefully. For that reason it would be preferrable avoiding to hardcoded it here.        
+          Instead, read the value from an environment variable or keep the value in a separate, private file. 
+          Details: https://sg.run/Ro22                                                                        
+                                                                                                              
+          671┆ 651┆ 23┆ export accountNumber=192372509350
+            ⋮┆----------------------------------------
+          673┆ 694┆ 599┆ 23┆ export accountNumber=192372509350
+            ⋮┆----------------------------------------
+          682┆ 23┆ export accountNumber=192372509350
+            ⋮┆----------------------------------------
+          726┆ 600┆ 651┆ 23┆ export accountNumber=192372509350
+            ⋮┆----------------------------------------
+          728┆ 602┆ 694┆ 599┆ 23┆ export accountNumber=192372509350
+            ⋮┆----------------------------------------
+          730┆ 611┆ 23┆ export accountNumber=192372509350
+                            
+    /run/scan/src/env/dev.sh
+   ❯❯❱ generic.secrets.security.detected-aws-account-id.detected-aws-account-id
+          AWS Account ID detected. While not considered sensitive information, it is important to use them and
+          share them carefully. For that reason it would be preferrable avoiding to hardcoded it here.        
+          Instead, read the value from an environment variable or keep the value in a separate, private file. 
+          Details: https://sg.run/Ro22                                                                        
+                                                                                                              
+           25┆ export accountNumber=263358745544
+
+
+<<<<<< End Semgrep output for /run/scan/src <<<<<<
+
+
+>>>>>> Begin Semgrep output for /out/work >>>>>>
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 16 files tracked by git with 1034 Code rules:
+                                                                                                                        
+  Language      Rules   Files          Origin      Rules                                                                
+ ─────────────────────────────        ───────────────────                                                               
+  <multilang>      36      32          Community    1034                                                                
+  js              155      10                                                                                           
+                                                                                                                        
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+Some files were skipped or only partially analyzed.
+  Scan was limited to files tracked by git.
+
+Ran 191 rules on 16 files: 7 findings.
+                   
+                   
+┌─────────────────┐
+│ 7 Code Findings │
+└─────────────────┘
+                                     
+    /out/work/grype_report_result.txt
+   ❯❯❱ generic.secrets.security.detected-aws-account-id.detected-aws-account-id
+          AWS Account ID detected. While not considered sensitive information, it is important to use them and
+          share them carefully. For that reason it would be preferrable avoiding to hardcoded it here.        
+          Instead, read the value from an environment variable or keep the value in a separate, private file. 
+          Details: https://sg.run/Ro22                                                                        
+                                                                                                              
+          659┆ 671┆ 651┆ 23┆ export accountNumber=192372509350
+            ⋮┆----------------------------------------
+          661┆ 673┆ 694┆ 599┆ 23┆ export accountNumber=192372509350
+            ⋮┆----------------------------------------
+          663┆ 682┆ 23┆ export accountNumber=192372509350
+            ⋮┆----------------------------------------
+          665┆ 726┆ 600┆ 651┆ 23┆ export accountNumber=192372509350
+            ⋮┆----------------------------------------
+          667┆ 728┆ 602┆ 694┆ 599┆ 23┆ export accountNumber=192372509350
+            ⋮┆----------------------------------------
+          669┆ 730┆ 611┆ 23┆ export accountNumber=192372509350
+            ⋮┆----------------------------------------
+          678┆ 25┆ export accountNumber=263358745544
+
+
+<<<<<< End Semgrep output for /out/work <<<<<<
+
+#############################################
+End of  /Users/jospas/Development/ConnectVoiceWorkshop/work/grype_report_result.txt
+#############################################
+
+
+#############################################
+Start of  /Users/jospas/Development/ConnectVoiceWorkshop/work/js_report_result.txt
+#############################################
+
+>>>>>> Begin npm audit output for /run/scan/src >>>>>>
+
+# npm audit report
+
+tar  <6.2.1
+Severity: moderate
+Denial of service while parsing a tar file due to lack of folders count validation - https://github.com/advisories/GHSA-f5x3-32g6-xq36
+fix available via `npm audit fix`
+node_modules/tar
+
+1 moderate severity vulnerability
+
+To address all issues, run:
+  npm audit fix
+npm notice 
+npm notice New major version of npm available! 8.6.0 -> 10.5.2
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.5.2>
+npm notice Run `npm install -g npm@10.5.2` to update!
+npm notice 
+
+<<<<<< End npm audit output for /run/scan/src <<<<<<
+
+
+>>>>>> Begin npm audit output for /out/work >>>>>>
+
+
+<<<<<< End npm audit output for /out/work <<<<<<
+
+#############################################
+End of  /Users/jospas/Development/ConnectVoiceWorkshop/work/js_report_result.txt
+#############################################
+
+
+#############################################
+Start of  /Users/jospas/Development/ConnectVoiceWorkshop/work/py_report_result.txt
+#############################################
+>>>>>> begin identifyipynb output for Jupyter notebook conversion >>>>>>
+Looking for Jupyter notebook files
+
+<<<<<< end identifyipynb output for Jupyter notebook conversion <<<<<<
+>>>>>> begin bandit result for /run/scan/src >>>>>>
+[main]	INFO	profile include tests: None
+[main]	INFO	profile exclude tests: None
+[main]	INFO	cli include tests: None
+[main]	INFO	cli exclude tests: None
+[main]	INFO	running on Python 3.11.9
+Run started:2024-04-18 00:33:55.078204
+
+Test results:
+>> Issue: [B405:blacklist] Using xml.etree.ElementTree to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.etree.ElementTree with the equivalent defusedxml package, or make sure defusedxml.defuse_stdlib() is called.
+   Severity: Low   Confidence: High
+   CWE: CWE-20 (https://cwe.mitre.org/data/definitions/20.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.8/blacklists/blacklist_imports.html#b405-import-xml-etree
+   Location: /run/scan/src/test/chatbot.py:2:0
+1	import datetime
+2	import xml.etree.ElementTree as ET
+3	
+
+--------------------------------------------------
+>> Issue: [B314:blacklist] Using xml.etree.ElementTree.fromstring to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.etree.ElementTree.fromstring with its defusedxml equivalent function or make sure defusedxml.defuse_stdlib() is called
+   Severity: Medium   Confidence: High
+   CWE: CWE-20 (https://cwe.mitre.org/data/definitions/20.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.8/blacklists/blacklist_calls.html#b313-b320-xml-bad-elementtree
+   Location: /run/scan/src/test/chatbot.py:305:11
+304	def parse_xml(xml_string):
+305	    root = ET.fromstring(xml_string)
+306	    return root
+
+--------------------------------------------------
+
+Code scanned:
+	Total lines of code: 381
+	Total lines skipped (#nosec): 0
+	Total potential issues skipped due to specifically being disabled (e.g., #nosec BXXX): 0
+
+Run metrics:
+	Total issues (by severity):
+		Undefined: 0
+		Low: 1
+		Medium: 1
+		High: 0
+	Total issues (by confidence):
+		Undefined: 0
+		Low: 0
+		Medium: 0
+		High: 2
+Files skipped (0):
+<<<<<< end bandit result for /run/scan/src <<<<<<
+>>>>>> begin bandit result for /out/work >>>>>>
+[main]	INFO	profile include tests: None
+[main]	INFO	profile exclude tests: None
+[main]	INFO	cli include tests: None
+[main]	INFO	cli exclude tests: None
+[main]	INFO	running on Python 3.11.9
+Run started:2024-04-18 00:33:56.558122
+
+Test results:
+	No issues identified.
+
+Code scanned:
+	Total lines of code: 0
+	Total lines skipped (#nosec): 0
+	Total potential issues skipped due to specifically being disabled (e.g., #nosec BXXX): 0
+
+Run metrics:
+	Total issues (by severity):
+		Undefined: 0
+		Low: 0
+		Medium: 0
+		High: 0
+	Total issues (by confidence):
+		Undefined: 0
+		Low: 0
+		Medium: 0
+		High: 0
+Files skipped (0):
+<<<<<< end bandit result for /out/work <<<<<<
+#############################################
+End of  /Users/jospas/Development/ConnectVoiceWorkshop/work/py_report_result.txt
+#############################################
+
+
+#############################################
+Start of  /Users/jospas/Development/ConnectVoiceWorkshop/work/yaml_report_result.txt
+#############################################
+
+>>>>>> Begin yaml scan output for /run/scan/src >>>>>>
+
+starting to investigate ...
+found 0 files to scan.  Skipping checkov scans.
+found 0 files to scan.  Skipping cfn_nag scans.
+
+<<<<<< End yaml scan output for /run/scan/src <<<<<<
+
+
+>>>>>> Begin yaml scan output for /out/work >>>>>>
+
+starting to investigate ...
+found 0 files to scan.  Skipping checkov scans.
+found 0 files to scan.  Skipping cfn_nag scans.
+
+<<<<<< End yaml scan output for /out/work <<<<<<
+
+#############################################
+End of  /Users/jospas/Development/ConnectVoiceWorkshop/work/yaml_report_result.txt
+#############################################
+
+

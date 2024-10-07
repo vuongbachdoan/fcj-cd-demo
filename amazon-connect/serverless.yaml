@@ -1,0 +1,216 @@
+service: ${env:service}
+
+provider:
+  name: aws
+  region: ${env:region}
+  runtime: nodejs18.x
+  endpointType: REGIONAL
+  stage: ${env:stage}
+  versionFunctions: false
+  logRetentionInDays: 60
+  deploymentBucket:
+    name: ${env:deploymentBucket}
+  deploymentPrefix: applications/${self:service}
+  stackName: ${env:stage}-${self:service}-2
+  apiGateway:
+    shouldStartNameWithService: true
+
+custom:
+
+  deployVersion: ${env:deployVersion, '1.0.0 initial release'}
+
+package:
+  individually: false
+  excludeDevDependencies: true
+  patterns:
+    - '!*/**'
+    - '!*'
+    - 'src/lambda/**'
+    - 'src/utils/**'
+    - 'node_modules/**'
+
+functions:
+
+  startstreaming:
+    handler: src/lambda/StartStreaming.handler
+    name: '${self:provider.stage}-${self:service}-start-streaming'
+    description: 'Handles starting streaming by dropping an SQS message'
+    role: LambdaRole
+    memorySize: 256
+    timeout: 7
+    environment:
+      REGION: '${self:provider.region}'
+      STAGE: '${self:provider.stage}'
+      SQS_QUEUE_URL: !Ref ProcessQueue
+    
+  processstream:
+    handler: src/lambda/ProcessStream.handler
+    name: '${self:provider.stage}-${self:service}-process-stream'
+    description: 'Handles listening on a KVS stream and transcribing'
+    role: LambdaRole
+    memorySize: 256
+    timeout: 30
+    environment:
+      REGION: '${self:provider.region}'
+      STAGE: '${self:provider.stage}'
+      WHISPER_ENDPOINT: ${env:whisperEndPoint}
+      TRANSCRIPTS_TABLE: !Ref TranscriptsTable
+      MESSAGES_TABLE: !Ref MessagesTable
+      NEXT_MESSAGE_TABLE: !Ref NextMessageTable
+      BEDROCK_REGION: ${env:bedrockRegion}
+    events:
+      - sqs:
+          arn: !GetAtt ProcessQueue.Arn
+          batchSize: 1
+
+  virtualagent:
+    handler: src/lambda/VirtualAgent.handler
+    name: '${self:provider.stage}-${self:service}-virtual-agent'
+    description: 'Virtual agent fetching data from DynamoDB'
+    role: LambdaRole
+    memorySize: 256
+    timeout: 7
+    environment:
+      REGION: '${self:provider.region}'
+      STAGE: '${self:provider.stage}'
+      NEXT_MESSAGE_TABLE: !Ref NextMessageTable
+
+resources:
+  Description: 'Connect Voice - ${self:provider.stage}'
+  Resources:
+
+    # Table for transcripts
+    TranscriptsTable:
+      Type: 'AWS::DynamoDB::Table'
+      Properties:
+        TableName: '${self:provider.stage}-${self:service}-transcripts'
+        AttributeDefinitions:
+          - AttributeName: contactId
+            AttributeType: S
+          - AttributeName: transcriptId
+            AttributeType: S
+        KeySchema:
+          - AttributeName: contactId
+            KeyType: HASH
+          - AttributeName: transcriptId
+            KeyType: RANGE
+        BillingMode: PAY_PER_REQUEST
+
+    # Table for messages
+    MessagesTable:
+      Type: 'AWS::DynamoDB::Table'
+      Properties:
+        TableName: '${self:provider.stage}-${self:service}-messages'
+        AttributeDefinitions:
+          - AttributeName: contactId
+            AttributeType: S
+          - AttributeName: messageId
+            AttributeType: S
+        KeySchema:
+          - AttributeName: contactId
+            KeyType: HASH
+          - AttributeName: messageId
+            KeyType: RANGE
+        BillingMode: PAY_PER_REQUEST
+
+    # Table for for the next message and action
+    NextMessageTable:
+      Type: 'AWS::DynamoDB::Table'
+      Properties:
+        TableName: '${self:provider.stage}-${self:service}-nextmessage'
+        AttributeDefinitions:
+          - AttributeName: contactId
+            AttributeType: S
+        KeySchema:
+          - AttributeName: contactId
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+
+    LambdaRole:
+      Type: 'AWS::IAM::Role'
+      Properties:
+        RoleName: '${self:provider.stage}-${self:service}-${self:provider.region}-lambdarole'
+        Description: 'Lambda execution role'
+        AssumeRolePolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+            - Effect: 'Allow'
+              Principal:
+                Service:
+                  - 'lambda.amazonaws.com'
+              Action:
+                - 'sts:AssumeRole'
+        ManagedPolicyArns:
+          - !Ref LambdaPolicy
+
+    LambdaPolicy:
+      Type: 'AWS::IAM::ManagedPolicy'
+      Properties:
+        ManagedPolicyName: '${self:provider.stage}-${self:service}-${self:provider.region}-lambdapolicy'
+        Description: 'Managed policy for lambda execution'
+        PolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+            - Effect: Allow
+              Action:
+                - dynamodb:PutItem
+                - dynamodb:Query
+                - dynamodb:GetItem
+                - dynamodb:PartiQLInsert
+                - dynamodb:PartiQLSelect
+                - dynamodb:PartiQLUpdate
+                - dynamodb:PartiQLDelete
+              Resource:
+                - !GetAtt TranscriptsTable.Arn
+                - !GetAtt MessagesTable.Arn
+                - !GetAtt NextMessageTable.Arn
+            - Effect: Allow
+              Action:
+                - logs:CreateLogGroup
+                - logs:CreateLogStream
+                - logs:PutLogEvents
+              Resource:
+                - 'arn:aws:logs:${self:provider.region}:${env:accountNumber}:log-group:/aws/lambda/*:*:*'
+            - Effect: Allow
+              Action:
+                - sqs:SendMessage
+                - sqs:ReceiveMessage
+                - sqs:DeleteMessage
+                - sqs:GetQueueAttributes
+              Resource: 'arn:aws:sqs:${self:provider.region}:${env:accountNumber}:${self:provider.stage}-${self:service}-process'
+            - Effect: Allow
+              Action:
+                - sagemaker:InvokeEndpoint
+                - sagemaker:DescribeEndpoint
+              Resource:
+                - arn:aws:sagemaker:${self:provider.region}:${env:accountNumber}:endpoint/${env:whisperEndPoint}
+            - Effect: Allow
+              Action:
+                - bedrock:InvokeModel
+              Resource:
+                - 'arn:aws:bedrock:${env:bedrockRegion}::foundation-model/anthropic.claude-3-haiku-20240307-v1:0'
+            - Effect: Allow
+              Action:
+                - kinesisvideo:GetDataEndpoint
+                - kinesisvideo:GetMedia
+              Resource:
+                - arn:aws:kinesisvideo:${self:provider.region}:${env:accountNumber}:stream/*
+
+    ProcessQueue:
+      Type: AWS::SQS::Queue
+      Properties:
+        MaximumMessageSize: 1024
+        MessageRetentionPeriod: 1209600
+        QueueName: !Sub '${self:provider.stage}-${self:service}-process'
+        VisibilityTimeout: 1000
+        RedrivePolicy:
+          deadLetterTargetArn: !GetAtt ProcessRedriveQueue.Arn
+          maxReceiveCount: 1
+
+    ProcessRedriveQueue:
+      Type: AWS::SQS::Queue
+      Properties:
+        MaximumMessageSize: 1024
+        MessageRetentionPeriod: 1209600
+        QueueName: !Sub '${self:provider.stage}-${self:service}-process-redrive'
+        VisibilityTimeout: 120

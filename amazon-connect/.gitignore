@@ -1,0 +1,21 @@
+
+# Dependency directories
+node_modules/
+
+.DS_Store
+
+# Serverless directories
+.serverless/
+
+temp/
+data/
+
+*.bkp
+
+notebook/
+
+.nyc_output/
+
+analyst/
+
+.vscode/

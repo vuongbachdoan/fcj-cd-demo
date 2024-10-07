@@ -1,0 +1,256 @@
+
+
+       _               _              
+   ___| |__   ___  ___| | _______   __
+  / __| '_ \ / _ \/ __| |/ / _ \ \ / /
+ | (__| | | |  __/ (__|   < (_) \ V / 
+  \___|_| |_|\___|\___|_|\_\___/ \_/  
+                                      
+By Prisma Cloud | version: 3.2.2 
+Update available 3.2.2 -> 3.2.70
+Run pip3 install -U checkov to update 
+
+
+serverless scan results:
+
+Passed checks: 21, Failed checks: 8, Skipped checks: 0
+
+Check: CKV_AWS_108: "Ensure IAM policies does not allow data exfiltration"
+	PASSED for resource: AWS::IAM::Role.LambdaRole
+	File: /serverless.yaml:129-144
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-do-not-allow-data-exfiltration
+Check: CKV_AWS_111: "Ensure IAM policies does not allow write access without constraints"
+	PASSED for resource: AWS::IAM::Role.LambdaRole
+	File: /serverless.yaml:129-144
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-do-not-allow-write-access-without-constraint
+Check: CKV_AWS_107: "Ensure IAM policies does not allow credentials exposure"
+	PASSED for resource: AWS::IAM::Role.LambdaRole
+	File: /serverless.yaml:129-144
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-do-not-allow-credentials-exposure
+Check: CKV_AWS_61: "Ensure AWS IAM policy does not allow assume role permission across all services"
+	PASSED for resource: AWS::IAM::Role.LambdaRole
+	File: /serverless.yaml:129-144
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-iam-45
+Check: CKV_AWS_109: "Ensure IAM policies does not allow permissions management without constraints"
+	PASSED for resource: AWS::IAM::Role.LambdaRole
+	File: /serverless.yaml:129-144
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-do-not-allow-permissions-management-resource-exposure-without-constraint
+Check: CKV_AWS_60: "Ensure IAM role allows only specific services or principals to assume it"
+	PASSED for resource: AWS::IAM::Role.LambdaRole
+	File: /serverless.yaml:129-144
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-iam-44
+Check: CKV_AWS_110: "Ensure IAM policies does not allow privilege escalation"
+	PASSED for resource: AWS::IAM::Role.LambdaRole
+	File: /serverless.yaml:129-144
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-does-not-allow-privilege-escalation
+Check: CKV_AWS_108: "Ensure IAM policies does not allow data exfiltration"
+	PASSED for resource: AWS::IAM::ManagedPolicy.LambdaPolicy
+	File: /serverless.yaml:146-197
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-do-not-allow-data-exfiltration
+Check: CKV_AWS_111: "Ensure IAM policies does not allow write access without constraints"
+	PASSED for resource: AWS::IAM::ManagedPolicy.LambdaPolicy
+	File: /serverless.yaml:146-197
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-do-not-allow-write-access-without-constraint
+Check: CKV_AWS_107: "Ensure IAM policies does not allow credentials exposure"
+	PASSED for resource: AWS::IAM::ManagedPolicy.LambdaPolicy
+	File: /serverless.yaml:146-197
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-do-not-allow-credentials-exposure
+Check: CKV_AWS_109: "Ensure IAM policies does not allow permissions management without constraints"
+	PASSED for resource: AWS::IAM::ManagedPolicy.LambdaPolicy
+	File: /serverless.yaml:146-197
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-do-not-allow-permissions-management-resource-exposure-without-constraint
+Check: CKV_AWS_110: "Ensure IAM policies does not allow privilege escalation"
+	PASSED for resource: AWS::IAM::ManagedPolicy.LambdaPolicy
+	File: /serverless.yaml:146-197
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-iam-policies-does-not-allow-privilege-escalation
+Check: CKV_AWS_49: "Ensure no IAM policies documents allow "*" as a statement's actions"
+	PASSED for resource: startstreaming
+	File: /serverless.yaml:34-45
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-iam-43
+Check: CKV_AWS_41: "Ensure no hard coded AWS access key and secret key exists in provider"
+	PASSED for resource: startstreaming
+	File: /serverless.yaml:34-45
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/secrets-policies/bc-aws-secrets-5
+Check: CKV_AWS_1: "Ensure IAM policies that allow full "*-*" administrative privileges are not created"
+	PASSED for resource: startstreaming
+	File: /serverless.yaml:34-45
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/iam-23
+Check: CKV_AWS_49: "Ensure no IAM policies documents allow "*" as a statement's actions"
+	PASSED for resource: processstream
+	File: /serverless.yaml:46-65
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-iam-43
+Check: CKV_AWS_41: "Ensure no hard coded AWS access key and secret key exists in provider"
+	PASSED for resource: processstream
+	File: /serverless.yaml:46-65
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/secrets-policies/bc-aws-secrets-5
+Check: CKV_AWS_1: "Ensure IAM policies that allow full "*-*" administrative privileges are not created"
+	PASSED for resource: processstream
+	File: /serverless.yaml:46-65
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/iam-23
+Check: CKV_AWS_49: "Ensure no IAM policies documents allow "*" as a statement's actions"
+	PASSED for resource: virtualagent
+	File: /serverless.yaml:66-77
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-iam-43
+Check: CKV_AWS_41: "Ensure no hard coded AWS access key and secret key exists in provider"
+	PASSED for resource: virtualagent
+	File: /serverless.yaml:66-77
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/secrets-policies/bc-aws-secrets-5
+Check: CKV_AWS_1: "Ensure IAM policies that allow full "*-*" administrative privileges are not created"
+	PASSED for resource: virtualagent
+	File: /serverless.yaml:66-77
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/iam-23
+Check: CKV_AWS_28: "Ensure DynamoDB point in time recovery (backup) is enabled"
+	FAILED for resource: AWS::DynamoDB::Table.TranscriptsTable
+	File: /serverless.yaml:83-99
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/general-6
+
+		83 |     TranscriptsTable:
+		84 |       Type: 'AWS::DynamoDB::Table'
+		85 |       Properties:
+		86 |         TableName: '${self:provider.stage}-${self:service}-transcripts'
+		87 |         AttributeDefinitions:
+		88 |           - AttributeName: contactId
+		89 |             AttributeType: S
+		90 |           - AttributeName: transcriptId
+		91 |             AttributeType: S
+		92 |         KeySchema:
+		93 |           - AttributeName: contactId
+		94 |             KeyType: HASH
+		95 |           - AttributeName: transcriptId
+		96 |             KeyType: RANGE
+		97 |         BillingMode: PAY_PER_REQUEST
+		98 | 
+		99 |     # Table for messages
+
+Check: CKV_AWS_119: "Ensure DynamoDB Tables are encrypted using a KMS Customer Managed CMK"
+	FAILED for resource: AWS::DynamoDB::Table.TranscriptsTable
+	File: /serverless.yaml:83-99
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/bc-aws-52
+
+		83 |     TranscriptsTable:
+		84 |       Type: 'AWS::DynamoDB::Table'
+		85 |       Properties:
+		86 |         TableName: '${self:provider.stage}-${self:service}-transcripts'
+		87 |         AttributeDefinitions:
+		88 |           - AttributeName: contactId
+		89 |             AttributeType: S
+		90 |           - AttributeName: transcriptId
+		91 |             AttributeType: S
+		92 |         KeySchema:
+		93 |           - AttributeName: contactId
+		94 |             KeyType: HASH
+		95 |           - AttributeName: transcriptId
+		96 |             KeyType: RANGE
+		97 |         BillingMode: PAY_PER_REQUEST
+		98 | 
+		99 |     # Table for messages
+
+Check: CKV_AWS_28: "Ensure DynamoDB point in time recovery (backup) is enabled"
+	FAILED for resource: AWS::DynamoDB::Table.MessagesTable
+	File: /serverless.yaml:100-116
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/general-6
+
+		100 |     MessagesTable:
+		101 |       Type: 'AWS::DynamoDB::Table'
+		102 |       Properties:
+		103 |         TableName: '${self:provider.stage}-${self:service}-messages'
+		104 |         AttributeDefinitions:
+		105 |           - AttributeName: contactId
+		106 |             AttributeType: S
+		107 |           - AttributeName: messageId
+		108 |             AttributeType: S
+		109 |         KeySchema:
+		110 |           - AttributeName: contactId
+		111 |             KeyType: HASH
+		112 |           - AttributeName: messageId
+		113 |             KeyType: RANGE
+		114 |         BillingMode: PAY_PER_REQUEST
+		115 | 
+		116 |     # Table for for the next message and action
+
+Check: CKV_AWS_119: "Ensure DynamoDB Tables are encrypted using a KMS Customer Managed CMK"
+	FAILED for resource: AWS::DynamoDB::Table.MessagesTable
+	File: /serverless.yaml:100-116
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/bc-aws-52
+
+		100 |     MessagesTable:
+		101 |       Type: 'AWS::DynamoDB::Table'
+		102 |       Properties:
+		103 |         TableName: '${self:provider.stage}-${self:service}-messages'
+		104 |         AttributeDefinitions:
+		105 |           - AttributeName: contactId
+		106 |             AttributeType: S
+		107 |           - AttributeName: messageId
+		108 |             AttributeType: S
+		109 |         KeySchema:
+		110 |           - AttributeName: contactId
+		111 |             KeyType: HASH
+		112 |           - AttributeName: messageId
+		113 |             KeyType: RANGE
+		114 |         BillingMode: PAY_PER_REQUEST
+		115 | 
+		116 |     # Table for for the next message and action
+
+Check: CKV_AWS_28: "Ensure DynamoDB point in time recovery (backup) is enabled"
+	FAILED for resource: AWS::DynamoDB::Table.NextMessageTable
+	File: /serverless.yaml:117-127
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/general-6
+
+		117 |     NextMessageTable:
+		118 |       Type: 'AWS::DynamoDB::Table'
+		119 |       Properties:
+		120 |         TableName: '${self:provider.stage}-${self:service}-nextmessage'
+		121 |         AttributeDefinitions:
+		122 |           - AttributeName: contactId
+		123 |             AttributeType: S
+		124 |         KeySchema:
+		125 |           - AttributeName: contactId
+		126 |             KeyType: HASH
+		127 |         BillingMode: PAY_PER_REQUEST
+
+Check: CKV_AWS_119: "Ensure DynamoDB Tables are encrypted using a KMS Customer Managed CMK"
+	FAILED for resource: AWS::DynamoDB::Table.NextMessageTable
+	File: /serverless.yaml:117-127
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/bc-aws-52
+
+		117 |     NextMessageTable:
+		118 |       Type: 'AWS::DynamoDB::Table'
+		119 |       Properties:
+		120 |         TableName: '${self:provider.stage}-${self:service}-nextmessage'
+		121 |         AttributeDefinitions:
+		122 |           - AttributeName: contactId
+		123 |             AttributeType: S
+		124 |         KeySchema:
+		125 |           - AttributeName: contactId
+		126 |             KeyType: HASH
+		127 |         BillingMode: PAY_PER_REQUEST
+
+Check: CKV_AWS_27: "Ensure all data stored in the SQS queue is encrypted"
+	FAILED for resource: AWS::SQS::Queue.ProcessQueue
+	File: /serverless.yaml:199-208
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/general-16-encrypt-sqs-queue
+
+		199 |     ProcessQueue:
+		200 |       Type: AWS::SQS::Queue
+		201 |       Properties:
+		202 |         MaximumMessageSize: 1024
+		203 |         MessageRetentionPeriod: 1209600
+		204 |         QueueName: !Sub '${self:provider.stage}-${self:service}-process'
+		205 |         VisibilityTimeout: 1000
+		206 |         RedrivePolicy:
+		207 |           deadLetterTargetArn: !GetAtt ProcessRedriveQueue.Arn
+		208 |           maxReceiveCount: 1
+
+Check: CKV_AWS_27: "Ensure all data stored in the SQS queue is encrypted"
+	FAILED for resource: AWS::SQS::Queue.ProcessRedriveQueue
+	File: /serverless.yaml:210-216
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/general-16-encrypt-sqs-queue
+
+		210 |     ProcessRedriveQueue:
+		211 |       Type: AWS::SQS::Queue
+		212 |       Properties:
+		213 |         MaximumMessageSize: 1024
+		214 |         MessageRetentionPeriod: 1209600
+		215 |         QueueName: !Sub '${self:provider.stage}-${self:service}-process-redrive'
+		216 |         VisibilityTimeout: 120
+
