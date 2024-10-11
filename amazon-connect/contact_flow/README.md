@@ -1,0 +1,1 @@
+To create flow in Amazon Connect, please go to Amazon Connect -> Flow -> Import file
