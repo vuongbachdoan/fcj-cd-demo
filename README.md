@@ -136,10 +136,7 @@ These components are packaged into a SageMaker endpoint, which serves the serial
 
 ### DEMO
 
-<audio controls>
-  <source src="./amazon-connect/doc/demo.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
+https://github.com/user-attachments/assets/dfa474e0-186e-428e-873c-f7f2c991da4d
 
 
 ## 🎉 Congratulations! 🎉
