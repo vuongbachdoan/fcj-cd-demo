@@ -136,7 +136,12 @@ These components are packaged into a SageMaker endpoint, which serves the serial
 
 ### DEMO
 
-https://github.com/user-attachments/assets/dfa474e0-186e-428e-873c-f7f2c991da4d
+<div style="text-align: center;">
+  <video width="800" controls>
+    <source src="https://github.com/user-attachments/assets/dfa474e0-186e-428e-873c-f7f2c991da4d" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
 
 
 ## 🎉 Congratulations! 🎉
