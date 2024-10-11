@@ -134,6 +134,14 @@ These components are packaged into a SageMaker endpoint, which serves the serial
 3. Claim a phone number by navigating to **Phone numbers > Voice > Toll free > Choose the flow you imported previously**.
 4. You're all set! Call your contact center now.
 
+### DEMO
+
+<audio controls>
+  <source src="./amazon-connect/doc/demo.m4a" type="audio/mp4">
+  Your browser does not support the audio element.
+</audio>
+
+
 ## 🎉 Congratulations! 🎉
 
 In this workshop, you have learned how to implement a call center using Amazon Connect and Generative AI. You’ve gained valuable insights into setting up efficient customer support systems that leverage cutting-edge technology to enhance user experience.
